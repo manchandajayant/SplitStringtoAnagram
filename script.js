@@ -6,17 +6,16 @@
 // For example, given the string 'abccde', you would break it into two parts: 'abc' and 'cde'. Note that all letters have been used, the substrings are contiguous and their lengths are equal. Now you can change 'a' and 'b' in the first substring to 'd' and 'e' to have 'dec' and 'cde' which are anagrams. Two changes were necessary.
 
 
-
-function anagramOfAString(s) {
-  let stringSlice1 = s.slice(s.length / 2);
-  let stringSlice2 = s.slice(0, s.length / 2);
+function anagramOfAString(string) {
+  let stringSlice1 = string.slice(string.length / 2);
+  let stringSlice2 = string.slice(0, string.length / 2);
 
   let countForAnagram = 0;
-  if (s.length % 2 !== 0) {
+  if (string.length % 2 !== 0) {
     return -1;
   }
-
-  for (let i = 0; i < s.length / 2; i++) {
+  console.log(stringSlice1, stringSlice2);
+  for (let i = 0; i < string.length / 2; i++) {
     if (stringSlice1.includes(stringSlice2[i])) {
       stringSlice1 = stringSlice1.replace(stringSlice2[i], "");
     } else {
@@ -26,4 +25,3 @@ function anagramOfAString(s) {
 
   return countForAnagram;
 }
-console.log(anagramOfAString("asdfjoieufoa"));
